@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %}
+
+
+
+{% block body %}
+    <div class="row posts">
+
+        <div class="col-md-9">
+            <h2>The Blogger</h2>
+        </div>
+
+        <div class="col-md-3">
+            <h2>The last posts</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-9 posts">
+            {% for post in posts %}
+                <div class="card">
+
+                    <div class="card-body">
+                        <h4 class="card-title">{{ post.title }}</h4>
+                        <p class="card-text">{{ post.content[:200] ~ '...' }}</p>
+                        <a href="{{ path('post_show_admin', { 'id': post.id }) }}" class="btn btn-success">Show more</a>
+
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12 posts">
+
+                    {% for post in posts %}
+                        <div class="card">
+                            <img class="card-img-top" src="{{ asset('/assets/images/' ~ post.image) }}">
+
+                            <div class="card-body">
+                                <h4 class="card-title">{{ post.title }}</h4>
+                                <p>Published: {{ post.date|date('d m Y') }} by {{ post.author }}</p>
+                                <p class="card-text">{{ post.content[:200] ~ '...' }}</p>
+                                <a href="{{ path('post_show_admin', { 'id': post.id }) }}" class="btn btn-success">Show
+                                    more</a>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

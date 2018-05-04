@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <a href="{{ path('post_index_admin') }} " class="btn btn-success create-button">Back to the list</a>
+
+    <div class="row posts">
+
+        <div class="col-md-12">
+            <div class="card">
+
+                <img class="card-img-top" src="{{ asset('/assets/images/' ~ post.image) }}">
+
+                <div class="card-body">
+                    <h4 class="card-title">{{ post.title }}</h4>
+                    <p>Published: {{ post.date|date('d m Y') }} by {{ post.author }}</p>
+                    <p class="card-text">{{ post.content }}</p>
+                    <a href="#" class="btn btn-primary">Share</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

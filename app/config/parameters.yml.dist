@@ -1,0 +1,7 @@
+parameters:
+    database_url: postgresql://tg@psql/app
+    mailer_url: smtp://mailhog:1025
+    media_url: 'local://%kernel.root_dir%/../web/media'
+    secret: "1202ae87d758d06d2b7b11430e11b6e2d964bfe8"
+    graylog_hostname: localhost
+    graylog_port: 12201
