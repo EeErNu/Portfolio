@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use AppBundle\Entity\Post;
+use AppBundle\Entity\Company;
+use AppBundle\Entity\Volunteer;
+use AppBundle\Entity\University;
 use AppBundle\Service\FileUploader;
 
 class PostUploadListener
@@ -35,7 +38,7 @@ class PostUploadListener
 
     private function uploadFile($entity)
     {
-        if ($entity instanceof Post || $entity instanceof  Team) {
+        if ($entity instanceof Post || $entity instanceof Team || $entity instanceof Company || $entity instanceof Volunteer || $entity instanceof University) {
             $file = $entity->getImage();
 
             // only upload new files

@@ -44,6 +44,15 @@ class CompanyControllerAdmin extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $company->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('image_directory'),
+                $fileName
+            );
+            $company->setImage($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
             $em->flush();
@@ -115,7 +124,7 @@ class CompanyControllerAdmin extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('company_index_admin');
+        return $this->redirectToRoute('about_admin');
     }
 
     /**

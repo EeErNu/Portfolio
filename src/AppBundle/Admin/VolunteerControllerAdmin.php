@@ -110,12 +110,21 @@ class VolunteerControllerAdmin extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $volunteer->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('image_directory'),
+                $fileName
+            );
+            $volunteer->setImage($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->remove($volunteer);
             $em->flush();
         }
 
-        return $this->redirectToRoute('volunteer_index_admin');
+        return $this->redirectToRoute('about_admin');
     }
 
     /**

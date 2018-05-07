@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Company
@@ -63,6 +64,31 @@ class Company
      */
     private $position;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PNG file.")
+     * @Assert\File(mimeTypes={ "image/png" })
+     */
+    private $image;
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
 
     /**
      * Get id.

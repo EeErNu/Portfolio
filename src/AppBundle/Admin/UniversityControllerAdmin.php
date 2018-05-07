@@ -110,12 +110,21 @@ class UniversityControllerAdmin extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $university->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('image_directory'),
+                $fileName
+            );
+            $university->setImage($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->remove($university);
             $em->flush();
         }
 
-        return $this->redirectToRoute('university_index_admin');
+        return $this->redirectToRoute('about_admin');
     }
 
     /**
