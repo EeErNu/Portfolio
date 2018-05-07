@@ -35,7 +35,7 @@ class TeamControllerAdmin extends Controller
     }
 
     /**
-     * @Route("/table", name="table_admin_admin")
+     * @Route("/table", name="table_index_admin")
      */
     public function tableAction()
     {

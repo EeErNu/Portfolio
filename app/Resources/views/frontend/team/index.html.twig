@@ -2,34 +2,34 @@
 
 {% block body %}
 
-    <div class="row posts">
-        {% for team in teams %}
-        <div class="col-md-3 raw">
+  <div class="row posts">
+    {% for team in teams %}
+      <div class="col-md-3 raw">
 
-                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                    <div class="flipper">
-                        <div class="front">
-                            <h2>
-                                tweede golf
-                            </h2>
-                            <img class="card-img-top" src="/assets/images/logo.png">
-                        </div>
-                        <div class="back">
-                            <div class="card">
-                                <img class="card-img-top" src="{{ asset('/assets/images/' ~ team.image) }}">
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+          <div class="flipper">
+            <div class="front">
+              <h2>
+                tweede golf
+              </h2>
+              <img class="card-img-top" src="/assets/images/logo.png">
+            </div>
+            <div class="back">
+              <div class="card">
+                <img class="card-img-top" src="{{ asset('/assets/images/' ~ team.image) }}">
 
-                                <div class="card-body">
-                                    <h4 class="card-title">{{ team.name }}</h4>
-                                    <p>{{ team.position }}</p>
-                                    <p>{{ team.email }}</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                <div class="card-body">
+                  <h4 class="card-title">{{ team.name }}</h4>
+                  <p>{{ team.position }}</p>
+                  <p>{{ team.email }}</p>
                 </div>
+              </div>
+
+            </div>
+          </div>
         </div>
-        {% endfor %}
-    </div>
+      </div>
+    {% endfor %}
+  </div>
 
 {% endblock %}

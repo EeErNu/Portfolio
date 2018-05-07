@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block javascripts %}
-  <script src="{{ app.debug ? asset('assets/scripts/libs/babel-polyfill.js') : asset('assets/scripts/libs/babel-polyfill.min.js') }}"></script>
+  <script
+      src="{{ app.debug ? asset('assets/scripts/libs/babel-polyfill.js') : asset('assets/scripts/libs/babel-polyfill.min.js') }}"></script>
   <script src="{{ app.debug ? asset('assets/scripts/app.js') : asset('assets/scripts/app.min.js') }}"></script>
 {% endblock %}
 
 {% block stylesheets %}
   <link rel="stylesheet" href="{{ app.debug ? asset('assets/styles/app.css') : asset('assets/styles/app.min.css') }}">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 {% endblock %}

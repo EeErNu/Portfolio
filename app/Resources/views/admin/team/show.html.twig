@@ -1,31 +1,32 @@
-{% extends 'layout.html.twig' %}
+{#{% extends 'layout.html.twig' %}#}
+{% extends 'headerAdmin.html.twig' %}
 
 {% block body %}
-    <h1>Team</h1>
+  <h1>Team</h1>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Email</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">{{ team.id }}</th>
-                <td>{{ team.name }}</td>
-                <td>{{ team.position }}</td>
-                <td>{{ team.email }}</td>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">{{ team.id }}</th>
+      <td>{{ team.name }}</td>
+      <td>{{ team.position }}</td>
+      <td>{{ team.email }}</td>
 
-            </tr>
-        </tbody>
-    </table>
+    </tr>
+    </tbody>
+  </table>
 
-            <a href="{{ path('team_index_admin') }}" class="btn btn-success">Back to the list</a>
-            <a href="{{ path('team_edit_admin', { 'id': team.id }) }}" class="btn btn-default">Edit</a>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete" class="btn btn-danger">
-            {{ form_end(delete_form) }}
+  <a href="{{ path('team_index_admin') }}" class="btn btn-success">Back to the list</a>
+  <a href="{{ path('team_edit_admin', { 'id': team.id }) }}" class="btn btn-default">Edit</a>
+  {{ form_start(delete_form) }}
+  <input type="submit" value="Delete" class="btn btn-danger">
+  {{ form_end(delete_form) }}
 {% endblock %}

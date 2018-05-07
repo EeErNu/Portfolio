@@ -2,42 +2,42 @@
 
 {% block body %}
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="search">
-                <form action="{{ path('post_index') }}" method="get">
-                    <label for="filter">Filter</label>
-                    <input name="filter" type="text" value="{{ searchWord }}" }>
-                    <button type="submit" class="btn btn-success btn-sm">Search</button>
-                </form>
-            </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="search">
+        <form action="{{ path('post_index') }}" method="get">
+          <label for="filter">Filter</label>
+          <input name="filter" type="text" value="{{ searchWord }}" }>
+          <button type="submit" class="btn btn-success btn-sm">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row posts">
+    {% for post in posts %}
+      <div class="col-md-4">
+        <div class="card">
+          <div style="background-image: {{ asset('/assets/images/' ~ post.image) }}">
+            <img class="card-img-top" src="{{ asset('/assets/images/' ~ post.image) }}">
+          </div>
+          {#<img class="card-img-top" style="background-image: {{ asset('/assets/images/' ~ post.image) }}">#}
+
+
+          <div class="card-body">
+            <h4 class="card-title">{{ post.title }}</h4>
+            <p>Published: {{ post.date|date('d m Y') }} by {{ post.author }}</p>
+            <p class="card-text">{{ post.content[:200] ~ '...' }}</p>
+          </div>
         </div>
-    </div>
-
-    <div class="row posts">
-        {% for post in posts %}
-            <div class="col-md-4">
-                <div class="card">
-                    <div style="background-image: {{ asset('/assets/images/' ~ post.image) }}">
-                        <img class="card-img-top" src="{{ asset('/assets/images/' ~ post.image) }}">
-                    </div>
-                    {#<img class="card-img-top" style="background-image: {{ asset('/assets/images/' ~ post.image) }}">#}
+      </div>
 
 
-                    <div class="card-body">
-                        <h4 class="card-title">{{ post.title }}</h4>
-                        <p>Published: {{ post.date|date('d m Y') }} by {{ post.author }}</p>
-                        <p class="card-text">{{ post.content[:200] ~ '...' }}</p>
-                    </div>
-                </div>
-            </div>
+    {% endfor %}
 
-
-        {% endfor %}
-
-    </div>
-    <div class="navigation">
-        {{ knp_pagination_render(posts) }}
-    </div>
+  </div>
+  <div class="navigation">
+    {{ knp_pagination_render(posts) }}
+  </div>
 
 {% endblock %}

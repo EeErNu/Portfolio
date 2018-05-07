@@ -1,34 +1,36 @@
-{% extends 'layout.html.twig' %}
+{#{% extends 'layout.html.twig' %}#}
+{% extends 'headerAdmin.html.twig' %}
 
 {% block body %}
 
-    <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value); ">
-        {% for team in teams%}
-            <option value="{{ path('team_show_admin', {id: team.id}) }}">{{ team.name }}</option>
-        {% endfor %}
-    </select>
+  <select
+      onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value); ">
+    {% for team in teams %}
+      <option value="{{ path('team_show_admin', {id: team.id}) }}">{{ team.name }}</option>
+    {% endfor %}
+  </select>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for team in teams %}
-        <tr>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for team in teams %}
+      <tr>
 
-            <th scope="row">{{ team.id }}</th>
-            <td>{{ team.name }}</td>
-            <td>{{ team.position }}</td>
-            <td>{{ team.email }}</td>
+        <th scope="row">{{ team.id }}</th>
+        <td>{{ team.name }}</td>
+        <td>{{ team.position }}</td>
+        <td>{{ team.email }}</td>
 
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
 
 {% endblock %}

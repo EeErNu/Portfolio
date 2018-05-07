@@ -1,4 +1,6 @@
-{% extends 'layout.html.twig' %}
+{#{% extends 'layout.html.twig' %}#}
+{% extends 'headerAdmin.html.twig' %}
+
 {% block body %}
     <h2>Snake</h2>
 
@@ -28,7 +30,7 @@
 
         setInterval(drawEverything, 1000/framesPerSecond);
 
-    }
+    };
 
 
     function drawEverything() {

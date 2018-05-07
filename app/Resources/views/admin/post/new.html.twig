@@ -1,19 +1,20 @@
-{% extends 'layout.html.twig' %}
+{#{% extends 'layout.html.twig' %}#}
+{% extends 'headerAdmin.html.twig' %}
 
 {% block body %}
 
-    <a href="{{ path('post_index_admin') }} " class="btn btn-success create-button">Back to the list</a>
+  <a href="{{ path('post_index_admin') }} " class="btn btn-success create-button">Back to the list</a>
 
-    <h1>Post creation</h1>
+  <h1>Post creation</h1>
 
 
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
+  {{ form_start(form) }}
+  {{ form_widget(form) }}
 
-        {{ form_row(form.image) }}
+  {{ form_row(form.image) }}
 
-    <input type="submit" value="Create" />
-    {{ form_end(form) }}
+  <input type="submit" value="Create"/>
+  {{ form_end(form) }}
 
 {% endblock %}

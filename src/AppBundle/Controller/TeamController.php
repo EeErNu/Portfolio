@@ -35,7 +35,7 @@ class TeamController extends Controller
     }
 
     /**
-     * @Route("/table", name="table")
+     * @Route("/table", name="table_index")
      */
     public function tableAction()
     {

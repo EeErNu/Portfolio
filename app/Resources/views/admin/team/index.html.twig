@@ -1,41 +1,42 @@
-{% extends 'layout.html.twig' %}
+{#{% extends 'layout.html.twig' %}#}
+{% extends 'headerAdmin.html.twig' %}
 
 {% block body %}
 
-    <a href="{{ path('team_new_admin') }}" class="btn btn-success create-button">Create a new entry</a>
+  <a href="{{ path('team_new_admin') }}" class="btn btn-success create-button">Create a new entry</a>
 
-    <div class="row posts">
-        {% for team in teams %}
-        <div class="col-md-3 raw">
+  <div class="row posts">
+    {% for team in teams %}
+      <div class="col-md-3 raw">
 
-                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                    <div class="flipper">
-                        <div class="front">
-                            <h2>
-                                tweede golf
-                            </h2>
-                            <img class="card-img-top" src="/assets/images/logo.png">
-                        </div>
-                        <div class="back">
-                            <div class="card">
-                                <img class="card-img-top" src="{{ asset('/assets/images/' ~ team.image) }}">
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+          <div class="flipper">
+            <div class="front">
+              <h2>
+                tweede golf
+              </h2>
+              <img class="card-img-top" src="/assets/images/logo.png">
+            </div>
+            <div class="back">
+              <div class="card">
+                <img class="card-img-top" src="{{ asset('/assets/images/' ~ team.image) }}">
 
-                                <div class="card-body">
-                                    <h4 class="card-title">{{ team.name }}</h4>
-                                    <p>{{ team.position }}</p>
-                                    <p>{{ team.email }}</p>
-                                    <a href="{{ path('team_show_admin', { 'id': team.id }) }}" class="btn btn-success">Show more</a>
-                                    <a href="{{ path('team_edit_admin', { 'id': team.id }) }}" class="btn btn-danger">Edit</a>
+                <div class="card-body">
+                  <h4 class="card-title">{{ team.name }}</h4>
+                  <p>{{ team.position }}</p>
+                  <p>{{ team.email }}</p>
+                  <a href="{{ path('team_show_admin', { 'id': team.id }) }}" class="btn btn-success">Show more</a>
+                  <a href="{{ path('team_edit_admin', { 'id': team.id }) }}" class="btn btn-danger">Edit</a>
 
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
+              </div>
+
+            </div>
+          </div>
         </div>
-        {% endfor %}
-    </div>
+      </div>
+    {% endfor %}
+  </div>
 
 
 
