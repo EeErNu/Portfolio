@@ -15,4 +15,4 @@ Project location is on: `http://localhost:8080/`
 Database name - `app`; Database user - `tg`.
 
 To create a new admin user please do the following in docker container:
-`php bin/console fos:user:create adminuser --super-admin`, wheres adminuser is a name of a user.
+`php bin/console fos:user:create adminuser --super-admin`, wheres "adminuser" is a name of a user.

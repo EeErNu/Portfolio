@@ -51,5 +51,19 @@ class PostController extends Controller
         ]);
     }
 
+    /**
+     * Finds and displays a Post entity.
+     *
+     * @Route("/{id}", name="post_show")
+     * @Method("GET")
+     */
+    public function showAction(Post $post)
+    {
+
+        return $this->render('admin/post/show.html.twig', array(
+            'post' => $post
+        ));
+    }
+
 
 }

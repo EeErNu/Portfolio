@@ -28,6 +28,10 @@
             <h4 class="card-title">{{ post.title }}</h4>
             <p>Published: {{ post.date|date('d m Y') }} by {{ post.author }}</p>
             <p class="card-text">{{ post.content[:200] ~ '...' }}</p>
+            <a href="{{ path('post_show', { 'id': post.id }) }}" class="btn btn-success">
+              <i class="fa fa-eye"></i>
+              Show more
+            </a>
           </div>
         </div>
       </div>
