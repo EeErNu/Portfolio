@@ -24,6 +24,24 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/about", name="about")
+     */
+    public function aboutAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $companies = $em->getRepository('AppBundle:Company')->findAll();
+        $universities = $em->getRepository('AppBundle:University')->findAll();
+        $volunteers = $em->getRepository('AppBundle:Volunteer')->findAll();
+
+        return $this->render('frontend/about/about.html.twig', [
+            'companies' => $companies,
+            'universities' => $universities,
+            'volunteers' => $volunteers,
+        ]);
+    }
+
+    /**
      * @Route("/contact", name="contact")
      */
     public function contactAction()

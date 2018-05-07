@@ -20,11 +20,3 @@ fos_user_resetting:
 admin_area:
     resource: '@AppBundle/Admin'
     prefix: /admin
-
-
-
-#
-#admin:
-#    resource: .
-#    type: admin
-#    prefix: /admin

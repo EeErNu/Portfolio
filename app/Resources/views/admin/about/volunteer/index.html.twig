@@ -1,0 +1,49 @@
+{% extends 'headerAdmin.html.twig' %}
+
+{% block body %}
+  <h1>Volunteers list</h1>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Organization</th>
+      <th>Role</th>
+      <th>Cause</th>
+      <th>Start</th>
+      <th>Finish</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for volunteer in volunteers %}
+      <tr>
+        <td><a href="{{ path('volunteer_show_admin', { 'id': volunteer.id }) }}">{{ volunteer.id }}</a></td>
+        <td>{{ volunteer.organization }}</td>
+        <td>{{ volunteer.role }}</td>
+        <td>{{ volunteer.cause }}</td>
+        <td>{% if volunteer.start %}{{ volunteer.start|date('Y-m-d H:i:s') }}{% endif %}</td>
+        <td>{% if volunteer.finish %}{{ volunteer.finish|date('Y-m-d H:i:s') }}{% endif %}</td>
+        <td>{{ volunteer.description }}</td>
+        <td>
+          <ul>
+            <li>
+              <a href="{{ path('volunteer_show_admin', { 'id': volunteer.id }) }}">show</a>
+            </li>
+            <li>
+              <a href="{{ path('volunteer_edit_admin', { 'id': volunteer.id }) }}">edit</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <ul>
+    <li>
+      <a href="{{ path('volunteer_new_admin') }}">Create a new volunteer</a>
+    </li>
+  </ul>
+{% endblock %}

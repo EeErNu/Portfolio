@@ -43,10 +43,7 @@ class PostUploadListener
                 $fileName = $this->uploader->upload($file);
                 $entity->setImage($fileName);
             }
-
-
         }
-
         return;
     }
 }

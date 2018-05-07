@@ -21,9 +21,26 @@ class DefaultControllerAdmin extends Controller
 
         $posts = $em->getRepository('AppBundle:Post')->findBy([], ['date' => 'desc'], 4);
 
-
         return $this->render('admin/default/index.html.twig', [
             'posts' => $posts,
+        ]);
+    }
+
+    /**
+     * @Route("/about", name="about_admin")
+     */
+    public function aboutAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $companies = $em->getRepository('AppBundle:Company')->findAll();
+        $universities = $em->getRepository('AppBundle:University')->findAll();
+        $volunteers = $em->getRepository('AppBundle:Volunteer')->findAll();
+
+        return $this->render('admin/about/about.html.twig', [
+            'companies' => $companies,
+            'universities' => $universities,
+            'volunteers' => $volunteers,
         ]);
     }
 

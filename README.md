@@ -14,5 +14,7 @@ Project location is on: `http://localhost:8080/`
 
 Database name - `app`; Database user - `tg`.
 
+To update database run the following in a container: `bin/symfony doctrine:schema:update --force`.
+
 To create a new admin user please do the following in docker container:
 `php bin/console fos:user:create adminuser --super-admin`, wheres "adminuser" is a name of a user.

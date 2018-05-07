@@ -1,0 +1,56 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>University</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ university.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ university.name }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ university.location }}</td>
+            </tr>
+            <tr>
+                <th>Start</th>
+                <td>{% if university.start %}{{ university.start|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Finish</th>
+                <td>{% if university.finish %}{{ university.finish|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ university.description }}</td>
+            </tr>
+            <tr>
+                <th>Field</th>
+                <td>{{ university.field }}</td>
+            </tr>
+            <tr>
+                <th>Specialization</th>
+                <td>{{ university.specialization }}</td>
+            </tr>
+            <tr>
+                <th>Degree</th>
+                <td>{{ university.degree }}</td>
+            </tr>
+            <tr>
+                <th>Grade</th>
+                <td>{{ university.grade }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('about') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
