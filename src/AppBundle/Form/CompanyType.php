@@ -14,7 +14,14 @@ class CompanyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('location')->add('start')->add('finish')->add('description')->add('position')->add('image', FileType::class, array('label' => 'Image (PNG file)'));
+        $builder
+            ->add('name')
+            ->add('location')
+            ->add('start')
+            ->add('finish')
+            ->add('description')
+            ->add('position')
+            ->add('image', FileType::class, array('label' => 'Image (PNG file)'));
     }/**
      * {@inheritdoc}
      */

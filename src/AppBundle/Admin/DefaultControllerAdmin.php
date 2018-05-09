@@ -45,14 +45,6 @@ class DefaultControllerAdmin extends Controller
     }
 
     /**
-     * @Route("/contact", name="contact_admin")
-     */
-    public function contactAction()
-    {
-        return $this->render('admin/default/contact.html.twig');
-    }
-
-    /**
      * @Route("/tennis", name="tennis_admin")
      */
     public function tennisAction()

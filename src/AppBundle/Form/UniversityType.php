@@ -14,7 +14,17 @@ class UniversityType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('location')->add('start')->add('finish')->add('description')->add('field')->add('specialization')->add('degree')->add('grade')->add('image', FileType::class, array('label' => 'Image (PNG file)'));
+        $builder
+            ->add('name')
+            ->add('location')
+            ->add('start')
+            ->add('finish')
+            ->add('description')
+            ->add('field')
+            ->add('specialization')
+            ->add('degree')
+            ->add('grade')
+            ->add('image', FileType::class, array('label' => 'Image (PNG file)'));
     }/**
      * {@inheritdoc}
      */

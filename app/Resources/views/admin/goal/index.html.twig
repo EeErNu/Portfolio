@@ -1,0 +1,75 @@
+{% extends 'headerAdmin.html.twig' %}
+
+{% block body %}
+  <a href="{{ path('goal_new_admin') }}">Create a new goal</a>
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Todo</h1>
+
+      <div class="row posts">
+        {% for todo in todos %}
+          <div class="col-md-4">
+            <div class="card">
+              <div style="background-image: {{ asset('/assets/images/' ~ todo.image) }}">
+                <img class="card-img-top" src="{{ asset('/assets/images/' ~ todo.image) }}">
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>Id <a href="{{ path('goal_show_admin', { 'id': todo.id }) }}">{{ todo.id }}</a></li>
+                  <li>Name {{ todo.name }}</li>
+                  <li>Description {{ todo.description }}</li>
+                  <li>Added {% if todo.added %}{{ todo.added|date('Y-m-d H:i:s') }}{% endif %}</li>
+                </ul>
+
+                <p class="card-text">{{ todo.description[:200] ~ '...' }}</p>
+                <a href="{{ path('goal_show_admin', { 'id': todo.id }) }}" class="btn btn-success">
+                  <i class="fa fa-eye"></i>
+                  Show more
+                </a>
+                <a href="{{ path('goal_edit_admin', { 'id': todo.id }) }}" class="btn btn-danger">
+                  <i class="fa fa-edit"></i>
+                  Edit
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <h1>Done</h1>
+
+      <div class="row posts">
+        {% for imp in imps %}
+          <div class="col-md-4">
+            <div class="card">
+              <div style="background-image: {{ asset('/assets/images/' ~ imp.image) }}">
+                <img class="card-img-top" src="{{ asset('/assets/images/' ~ imp.image) }}">
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>Id <a href="{{ path('goal_show_admin', { 'id': imp.id }) }}">{{ imp.id }}</a></li>
+                  <li>Name {{ imp.name }}</li>
+                  <li>Description {{ imp.description }}</li>
+                  <li>Added {% if imp.added %}{{ imp.added|date('Y-m-d H:i:s') }}{% endif %}</li>
+                </ul>
+
+                <p class="card-text">{{ imp.description[:200] ~ '...' }}</p>
+                <a href="{{ path('goal_show_admin', { 'id': imp.id }) }}" class="btn btn-success">
+                  <i class="fa fa-eye"></i>
+                  Show more
+                </a>
+                <a href="{{ path('goal_edit_admin', { 'id': imp.id }) }}" class="btn btn-danger">
+                  <i class="fa fa-edit"></i>
+                  Edit
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

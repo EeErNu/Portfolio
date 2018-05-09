@@ -7,7 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class VolunteerType extends AbstractType
+class GoalType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,12 +15,10 @@ class VolunteerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('organization')
-            ->add('role')
-            ->add('cause')
-            ->add('start')
-            ->add('finish')
+            ->add('name')
             ->add('description')
+            ->add('added')
+            ->add('done')
             ->add('image', FileType::class, array('label' => 'Image (PNG file)'));
     }/**
      * {@inheritdoc}
@@ -28,7 +26,7 @@ class VolunteerType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Volunteer'
+            'data_class' => 'AppBundle\Entity\Goal'
         ));
     }
 
@@ -37,7 +35,7 @@ class VolunteerType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_volunteer';
+        return 'appbundle_goal';
     }
 
 
