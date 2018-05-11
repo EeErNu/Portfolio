@@ -10,6 +10,7 @@ use AppBundle\Entity\Post;
 use AppBundle\Entity\Team;
 use AppBundle\Entity\Goal;
 use AppBundle\Entity\Company;
+use AppBundle\Entity\Project;
 use AppBundle\Entity\Volunteer;
 use AppBundle\Entity\University;
 
@@ -41,7 +42,8 @@ class PostUploadListener
     {
         if ($entity instanceof Post || $entity instanceof Team ||
             $entity instanceof Company || $entity instanceof Volunteer ||
-            $entity instanceof University || $entity instanceof Goal) {
+            $entity instanceof University || $entity instanceof Goal ||
+            $entity instanceof Project) {
             $file = $entity->getImage();
 
             // only upload new files

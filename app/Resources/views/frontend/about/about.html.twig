@@ -12,7 +12,6 @@
           </div>
           <div class="card-body">
             <ul>
-              <li>Id <a href="{{ path('company_show_admin', { 'id': company.id }) }}">{{ company.id }}</a></li>
               <li>Name {{ company.name }}</li>
               <li>Location {{ company.location }}</li>
               <li>Start {% if company.start %}{{ company.start|date('Y-m-d') }}{% endif %}</li>
@@ -43,7 +42,6 @@
           </div>
           <div class="card-body">
             <ul>
-              <li>Id <a href="{{ path('company_show_admin', { 'id': university.id }) }}">{{ university.id }}</a></li>
               <li>Name {{ university.name }}</li>
               <li>Location {{ university.location }}</li>
               <li>Start {% if university.start %}{{ university.start|date('Y-m-d H:i:s') }}{% endif %}</li>
@@ -77,7 +75,6 @@
           </div>
           <div class="card-body">
             <ul>
-              <li>Id <a href="{{ path('volunteer_show_admin', { 'id': volunteer.id }) }}">{{ volunteer.id }}</a></li>
               <li>Organization {{ volunteer.organization }}</li>
               <li>Role {{ volunteer.role }}</li>
               <li>Cause {{ volunteer.cause }}</li>
@@ -88,6 +85,30 @@
 
             <p class="card-text">{{ volunteer.description[:200] ~ '...' }}</p>
             <a href="{{ path('volunteer_show', { 'id': volunteer.id }) }}" class="btn btn-success">
+              <i class="fa fa-eye"></i>
+              Show more
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <h1>Awards list</h1>
+  <div class="row posts">
+    {% for award in awards %}
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <ul>
+              <li>Id <a href="{{ path('award_show', { 'id': award.id }) }}">{{ award.id }}</a></li>
+              <li>Name {{ award.name }}</li>
+              <li>Date {% if award.date %}{{ award.date|date('Y-m-d') }}{% endif %}</li>
+              <li>Description {{ award.description }}</li>
+            </ul>
+
+            <p class="card-text">{{ award.description[:200] ~ '...' }}</p>
+            <a href="{{ path('award_show', { 'id': award.id }) }}" class="btn btn-success">
               <i class="fa fa-eye"></i>
               Show more
             </a>

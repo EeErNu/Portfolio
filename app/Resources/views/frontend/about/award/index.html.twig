@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>Awards list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for award in awards %}
+            <tr>
+                <td>{{ award.name }}</td>
+                <td>{% if award.date %}{{ award.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ award.description }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

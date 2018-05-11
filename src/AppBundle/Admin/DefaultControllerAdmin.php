@@ -36,11 +36,13 @@ class DefaultControllerAdmin extends Controller
         $companies = $em->getRepository('AppBundle:Company')->findAll();
         $universities = $em->getRepository('AppBundle:University')->findAll();
         $volunteers = $em->getRepository('AppBundle:Volunteer')->findAll();
+        $awards = $em->getRepository('AppBundle:Award')->findAll();
 
         return $this->render('admin/about/about.html.twig', [
             'companies' => $companies,
             'universities' => $universities,
             'volunteers' => $volunteers,
+            'awards' => $awards,
         ]);
     }
 
