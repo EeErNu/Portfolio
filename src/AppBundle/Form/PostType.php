@@ -21,7 +21,7 @@ class PostType extends AbstractType
             ->add('title')
             ->add('content')
             ->add('date')
-            ->add('image', FileType::class, array('label' => 'Image (PNG file)'))
+            ->add('image', FileType::class, array('label' => 'Image'))
         ;
     }
     

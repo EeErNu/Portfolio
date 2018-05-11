@@ -20,7 +20,7 @@ class TeamType extends AbstractType
             ->add('name', TextType::class)
             ->add('position')
             ->add('email')
-            ->add('image', FileType::class, array('label' => 'Image (PNG file)'))
+            ->add('image', FileType::class, array('label' => 'Image'))
         ;
     }
 

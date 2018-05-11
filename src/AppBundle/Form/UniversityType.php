@@ -24,7 +24,7 @@ class UniversityType extends AbstractType
             ->add('specialization')
             ->add('degree')
             ->add('grade')
-            ->add('image', FileType::class, array('label' => 'Image (PNG file)'));
+            ->add('image', FileType::class, array('label' => 'Image'));
     }/**
      * {@inheritdoc}
      */

@@ -21,7 +21,7 @@ class VolunteerType extends AbstractType
             ->add('start')
             ->add('finish')
             ->add('description')
-            ->add('image', FileType::class, array('label' => 'Image (PNG file)'));
+            ->add('image', FileType::class, array('label' => 'Image'));
     }/**
      * {@inheritdoc}
      */

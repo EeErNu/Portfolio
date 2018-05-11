@@ -5,7 +5,9 @@ namespace AppBundle\Admin;
 use AppBundle\Entity\Goal;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Goal controller.
@@ -95,12 +97,27 @@ class GoalControllerAdmin extends Controller
      */
     public function editAction(Request $request, Goal $goal)
     {
+
+        if ($goal->getImage()) {
+            $goal->setImage(new File($this->getParameter('image_directory').'/'.$goal->getImage()));
+        }
+
         $deleteForm = $this->createDeleteForm($goal);
         $editForm = $this->createForm('AppBundle\Form\GoalType', $goal);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $file = $goal->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('image_directory'),
+                $fileName
+            );
+            $goal->setImage($fileName);
+
             $this->getDoctrine()->getManager()->flush();
+
 
             return $this->redirectToRoute('goal_edit_admin', array('id' => $goal->getId()));
         }

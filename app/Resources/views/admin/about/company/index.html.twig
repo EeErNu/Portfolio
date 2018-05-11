@@ -1,49 +1,49 @@
 {% extends 'headerAdmin.html.twig' %}
 
 {% block body %}
-    <h1>Companies list</h1>
+  <h1>Companies list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Start</th>
-                <th>Finish</th>
-                <th>Description</th>
-                <th>Position</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for company in companies %}
-            <tr>
-                <td><a href="{{ path('company_show_admin', { 'id': company.id }) }}">{{ company.id }}</a></td>
-                <td>{{ company.name }}</td>
-                <td>{{ company.location }}</td>
-                <td>{% if company.start %}{{ company.start|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if company.finish %}{{ company.finish|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ company.description }}</td>
-                <td>{{ company.position }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('company_show_admin', { 'id': company.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('company_edit_admin', { 'id': company.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Start</th>
+      <th>Finish</th>
+      <th>Description</th>
+      <th>Position</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for company in companies %}
+      <tr>
+        <td><a href="{{ path('company_show_admin', { 'id': company.id }) }}">{{ company.id }}</a></td>
+        <td>{{ company.name }}</td>
+        <td>{{ company.location }}</td>
+        <td>{% if company.start %}{{ company.start|date('Y-m-d H:i:s') }}{% endif %}</td>
+        <td>{% if company.finish %}{{ company.finish|date('Y-m-d H:i:s') }}{% endif %}</td>
+        <td>{{ company.description }}</td>
+        <td>{{ company.position }}</td>
+        <td>
+          <ul>
+            <li>
+              <a href="{{ path('company_show_admin', { 'id': company.id }) }}">show</a>
+            </li>
+            <li>
+              <a href="{{ path('company_edit_admin', { 'id': company.id }) }}">edit</a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('company_new_admin') }}">Create a new company</a>
-        </li>
-    </ul>
+  <ul>
+    <li>
+      <a href="{{ path('company_new_admin') }}">Create a new company</a>
+    </li>
+  </ul>
 {% endblock %}

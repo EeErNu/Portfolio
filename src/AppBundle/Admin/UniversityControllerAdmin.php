@@ -5,7 +5,9 @@ namespace AppBundle\Admin;
 use AppBundle\Entity\University;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * University controller.
@@ -81,11 +83,24 @@ class UniversityControllerAdmin extends Controller
      */
     public function editAction(Request $request, University $university)
     {
+        if ($university->getImage()) {
+            $university->setImage(new File($this->getParameter('image_directory').'/'.$university->getImage()));
+        }
+
         $deleteForm = $this->createDeleteForm($university);
         $editForm = $this->createForm('AppBundle\Form\UniversityType', $university);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $file = $university->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('image_directory'),
+                $fileName
+            );
+            $university->setImage($fileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('university_edit_admin', array('id' => $university->getId()));

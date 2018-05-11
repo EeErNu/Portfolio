@@ -5,7 +5,9 @@ namespace AppBundle\Admin;
 use AppBundle\Entity\Company;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Company controller.
@@ -90,11 +92,24 @@ class CompanyControllerAdmin extends Controller
      */
     public function editAction(Request $request, Company $company)
     {
+        if ($company->getImage()) {
+            $company->setImage(new File($this->getParameter('image_directory').'/'.$company->getImage()));
+        }
+
         $deleteForm = $this->createDeleteForm($company);
         $editForm = $this->createForm('AppBundle\Form\CompanyType', $company);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $file = $company->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('image_directory'),
+                $fileName
+            );
+            $company->setImage($fileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('company_edit_admin', array('id' => $company->getId()));

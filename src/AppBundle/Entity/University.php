@@ -89,7 +89,7 @@ class University
      * @ORM\Column(type="string", nullable=true)
      *
      * @Assert\NotBlank(message="Please, upload the product brochure as a PNG file.")
-     * @Assert\File(mimeTypes={ "image/png" })
+     * @Assert\File
      */
     private $image;
 

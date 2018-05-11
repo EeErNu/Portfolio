@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <h1>Skills list</h1>
+      <canvas class="myChart" width="200" height="200"></canvas>
+      {% for skill in skills %}
+        <div class="skill-name" data-is-named="{{ skill.name }}"></div>
+        <div class="skill-score" data-is-scored="{{ skill.score }}"></div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

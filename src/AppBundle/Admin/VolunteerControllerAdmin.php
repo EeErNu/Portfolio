@@ -5,7 +5,9 @@ namespace AppBundle\Admin;
 use AppBundle\Entity\Volunteer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Volunteer controller.
@@ -81,11 +83,24 @@ class VolunteerControllerAdmin extends Controller
      */
     public function editAction(Request $request, Volunteer $volunteer)
     {
+        if ($volunteer->getImage()) {
+            $volunteer->setImage(new File($this->getParameter('image_directory').'/'.$volunteer->getImage()));
+        }
+
         $deleteForm = $this->createDeleteForm($volunteer);
         $editForm = $this->createForm('AppBundle\Form\VolunteerType', $volunteer);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $file = $volunteer->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('image_directory'),
+                $fileName
+            );
+            $volunteer->setImage($fileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('volunteer_edit_admin', array('id' => $volunteer->getId()));

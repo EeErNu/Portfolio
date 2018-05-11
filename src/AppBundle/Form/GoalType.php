@@ -19,7 +19,7 @@ class GoalType extends AbstractType
             ->add('description')
             ->add('added')
             ->add('done')
-            ->add('image', FileType::class, array('label' => 'Image (PNG file)'));
+            ->add('image', FileType::class, array('label' => 'Image'));
     }/**
      * {@inheritdoc}
      */

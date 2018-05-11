@@ -4,7 +4,7 @@
 
 {% block body %}
   <h1>Companies list</h1>
-  <a href="{{ path('company_new_admin') }}">Create a new company</a>
+  <a class="btn btn-success" href="{{ path('company_new_admin') }}">Create a new company</a>
 
   <div class="row posts">
     {% for company in companies %}
@@ -41,7 +41,7 @@
 
   <h1>Universities list</h1>
 
-  <a href="{{ path('university_new_admin') }}">Create a new university</a>
+  <a class="btn btn-success" href="{{ path('university_new_admin') }}">Create a new university</a>
 
   <div class="row posts">
     {% for university in universities %}
@@ -81,7 +81,7 @@
 
   <h1>Volunteers list</h1>
 
-  <a href="{{ path('volunteer_new_admin') }}">Create a new volunteer</a>
+  <a class="btn btn-success" href="{{ path('volunteer_new_admin') }}">Create a new volunteer</a>
 
   <div class="row posts">
     {% for volunteer in volunteers %}

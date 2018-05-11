@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Admin;
 
 use AppBundle\Entity\Skill;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -8,16 +8,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Skill controller.
+ * SkillAdmin controller.
  *
  * @Route("skill")
  */
-class SkillController extends Controller
+class SkillControllerAdmin extends Controller
 {
     /**
      * Lists all skill entities.
      *
-     * @Route("/", name="skill_index")
+     * @Route("/", name="skill_index_admin")
      * @Method("GET")
      */
     public function indexAction()
@@ -26,7 +26,7 @@ class SkillController extends Controller
 
         $skills = $em->getRepository('AppBundle:Skill')->findAll();
 
-        return $this->render('frontend/skill/index.html.twig', array(
+        return $this->render('admin/skill/index.html.twig', array(
             'skills' => $skills,
         ));
     }
@@ -34,7 +34,7 @@ class SkillController extends Controller
     /**
      * Creates a new skill entity.
      *
-     * @Route("/new", name="skill_new")
+     * @Route("/new", name="skill_new_admin")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -48,10 +48,10 @@ class SkillController extends Controller
             $em->persist($skill);
             $em->flush();
 
-            return $this->redirectToRoute('skill_show', array('id' => $skill->getId()));
+            return $this->redirectToRoute('skill_show_admin', array('id' => $skill->getId()));
         }
 
-        return $this->render('frontend/skill/new.html.twig', array(
+        return $this->render('admin/skill/new.html.twig', array(
             'skill' => $skill,
             'form' => $form->createView(),
         ));
@@ -60,14 +60,14 @@ class SkillController extends Controller
     /**
      * Finds and displays a skill entity.
      *
-     * @Route("/{id}", name="skill_show")
+     * @Route("/{id}", name="skill_show_admin")
      * @Method("GET")
      */
     public function showAction(Skill $skill)
     {
         $deleteForm = $this->createDeleteForm($skill);
 
-        return $this->render('frontend/skill/show.html.twig', array(
+        return $this->render('admin/skill/show.html.twig', array(
             'skill' => $skill,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -76,7 +76,7 @@ class SkillController extends Controller
     /**
      * Displays a form to edit an existing skill entity.
      *
-     * @Route("/{id}/edit", name="skill_edit")
+     * @Route("/{id}/edit", name="skill_edit_admin")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Skill $skill)
@@ -88,10 +88,10 @@ class SkillController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('skill_edit', array('id' => $skill->getId()));
+            return $this->redirectToRoute('skill_edit_admin', array('id' => $skill->getId()));
         }
 
-        return $this->render('frontend/skill/edit.html.twig', array(
+        return $this->render('admin/skill/edit.html.twig', array(
             'skill' => $skill,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -101,7 +101,7 @@ class SkillController extends Controller
     /**
      * Deletes a skill entity.
      *
-     * @Route("/{id}", name="skill_delete")
+     * @Route("/{id}", name="skill_delete_admin")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Skill $skill)
@@ -115,7 +115,7 @@ class SkillController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('skill_index');
+        return $this->redirectToRoute('skill_index_admin');
     }
 
     /**
@@ -128,7 +128,7 @@ class SkillController extends Controller
     private function createDeleteForm(Skill $skill)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('skill_delete', array('id' => $skill->getId())))
+            ->setAction($this->generateUrl('skill_delete_admin', array('id' => $skill->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

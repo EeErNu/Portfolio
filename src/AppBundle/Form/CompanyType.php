@@ -21,7 +21,7 @@ class CompanyType extends AbstractType
             ->add('finish')
             ->add('description')
             ->add('position')
-            ->add('image', FileType::class, array('label' => 'Image (PNG file)'));
+            ->add('image', FileType::class, array('label' => 'Image'));
     }/**
      * {@inheritdoc}
      */

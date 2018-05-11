@@ -66,7 +66,7 @@ class TeamControllerAdmin extends Controller
             $em->persist($team);
             $em->flush();
 
-            return $this->redirectToRoute('team_show', array('id' => $team->getId()));
+            return $this->redirectToRoute('team_show_admin', array('id' => $team->getId()));
         }
 
         return $this->render('admin/team/new.html.twig', array(
@@ -108,6 +108,15 @@ class TeamControllerAdmin extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $file = $team->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('image_directory'),
+                $fileName
+            );
+            $team->setImage($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($team);
             $em->flush();
