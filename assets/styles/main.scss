@@ -1,19 +1,19 @@
 $blog-text: Georgian;
 
-.create-button{
+.create-button {
   margin-bottom: 20px;
 }
 
-.blog_post{
+.blog_post {
   padding-bottom: 40px;
 
-  .basics{
+  .basics {
     font-size: 20px;
     padding-top: 20px;
     font-family: $blog-text;
   }
 
-  .post_content{
+  .post_content {
     font-size: 20px;
     padding-top: 20px;
     text-align: justify;
@@ -21,180 +21,30 @@ $blog-text: Georgian;
   }
 }
 
-.posts{
-
-  .card{
-    border: 1px solid;
-    border-color: lightgray;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-    background-color: #101010;
-    border-radius: 20px;
-    color: #9d9d9d;
+.posts {
+  .card {
     text-align: center;
 
-    img{
+    img {
       margin-top: 10px;
       width: 93%;
-      height: 175px;
-      background-color: #2e8ece;
     }
 
-    .card-img-top{
-      border-radius: 20px;
-    }
-
-    .card-body{
+    .card-body {
       padding-left: 10px;
       padding-right: 10px;
       text-align: justify;
-
-      .btn-success{
-        border-bottom-left-radius: 15px;
-      }
-
-      img{
-        background-color: transparent;
-        width: 20px;
-        height: 20px;
-        margin-top: 0px;
-        margin-right: 5px;
-      }
     }
   }
-
-  .contacts{
-    padding-bottom: 10px;
-  }
-
 }
 
-.my-icon{
+.my-icon {
   img {
     width: 30px;
     margin-top: -8px;
   }
 }
 
-.search{
+.search {
   float: right;
 }
-
-//=======test========
-
-/* perspective */
-.raw {
-  margin: auto;
-
-  /* turning on hover */
-  .flip-container {
-    margin: 10px;
-    float: left;
-  }
-
-  .flip-container:hover .flipper {
-    transform: rotateY(180deg);
-  }
-
-  .flip-container,
-  .front,
-  .back {
-    width: 250px;
-    height: 325px;
-    text-align: center;
-    border-radius: 20px;
-  }
-
-  /* flipping speed here */
-  /* making the the other side hidden while flipping */
-  .flipper {
-    transition: 0.7s;
-    transform-style: preserve-3d;
-    position: relative;
-
-
-    /* front side */
-    .front{
-      z-index: 2;
-      background-color: #101010;
-      color: white;
-      img{
-        padding-top: 114px;
-        width: 80%;
-      }
-    }
-
-    /* back side */
-    .back {
-      transform: rotateY(180deg);
-    }
-
-    /* front side is in front of a back side */
-    .front,
-    .back {
-      backface-visibility: hidden;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-  }
-}
-
-
-
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
-
-  .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 5px;
-    margin-top: 13px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-
-    a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-
-    a:hover {background-color: #f1f1f1}
-  }
-
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
-}
-
-
-
-
-
-
-

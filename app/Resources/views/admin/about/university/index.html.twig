@@ -3,53 +3,41 @@
 {% block body %}
     <h1>Universities list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Start</th>
-                <th>Finish</th>
-                <th>Description</th>
-                <th>Field</th>
-                <th>Specialization</th>
-                <th>Degree</th>
-                <th>Grade</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for university in universities %}
-            <tr>
-                <td><a href="{{ path('university_show_admin', { 'id': university.id }) }}">{{ university.id }}</a></td>
-                <td>{{ university.name }}</td>
-                <td>{{ university.location }}</td>
-                <td>{% if university.start %}{{ university.start|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if university.finish %}{{ university.finish|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ university.description }}</td>
-                <td>{{ university.field }}</td>
-                <td>{{ university.specialization }}</td>
-                <td>{{ university.degree }}</td>
-                <td>{{ university.grade }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('university_show_admin', { 'id': university.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('university_edit_admin', { 'id': university.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <a class="btn btn-success" href="{{ path('university_new_admin') }}">Create a new university</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('university_new_admin') }}">Create a new university</a>
-        </li>
-    </ul>
+    <div class="row posts">
+      {% for university in universities %}
+          <div class="col-md-4">
+              <div class="card">
+                  <div style="background-image: {{ asset('/assets/images/' ~ university.image) }}">
+                      <img class="card-img-top" src="{{ asset('/assets/images/' ~ university.image) }}">
+                  </div>
+                  <div class="card-body">
+                      <ul>
+                          <li>Id <a href="{{ path('university_show_admin', { 'id': university.id }) }}">{{ university.id }}</a></li>
+                          <li>Name {{ university.name }}</li>
+                          <li>Location {{ university.location }}</li>
+                          <li>Start {% if university.start %}{{ university.start|date('Y-m-d H:i:s') }}{% endif %}</li>
+                          <li>Finish {% if university.finish %}{{ university.finish|date('Y-m-d H:i:s') }}{% endif %}</li>
+                        {#<li>Description {{ university.description }}</li>#}
+                          <li>Field {{ university.field }}</li>
+                          <li>Specialization {{ university.specialization }}</li>
+                          <li>Degree {{ university.degree }}</li>
+                          <li>Grade {{ university.grade }}</li>
+                      </ul>
+
+                      <p class="card-text">{{ university.description[:200] ~ '...' }}</p>
+                      <a href="{{ path('university_show_admin', { 'id': university.id }) }}" class="btn btn-success">
+                          <i class="fa fa-eye"></i>
+                          Show more
+                      </a>
+                      <a href="{{ path('university_edit_admin', { 'id': university.id }) }}" class="btn btn-danger">
+                          <i class="fa fa-edit"></i>
+                          Edit
+                      </a>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+    </div>
 {% endblock %}

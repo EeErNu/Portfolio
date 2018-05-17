@@ -2,6 +2,10 @@
 
 {% block body %}
 
+
+
+  <h1>Post list</h1>
+
   <div class="row">
     <div class="col-md-6">
       <a href="{{ path('post_new_admin') }}" class="btn btn-success create-button">Create a new entry</a>
@@ -26,7 +30,6 @@
             <img class="card-img-top" src="{{ asset('/assets/images/' ~ post.image) }}">
           </div>
           {#<img class="card-img-top" style="background-image: {{ asset('/assets/images/' ~ post.image) }}">#}
-          L
           <div class="card-body">
             <h4 class="card-title">{{ post.title }}</h4>
             <p>Published: {{ post.date|date('d m Y') }} by {{ post.author }}</p>

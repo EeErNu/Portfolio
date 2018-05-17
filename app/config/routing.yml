@@ -20,3 +20,6 @@ fos_user_resetting:
 admin_area:
     resource: '@AppBundle/Admin'
     prefix: /admin
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.yaml"

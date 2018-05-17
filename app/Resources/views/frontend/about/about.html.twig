@@ -8,7 +8,8 @@
       <div class="col-md-4">
         <div class="card">
           <div style="background-image: {{ asset('/assets/images/' ~ company.image) }}">
-            <img class="card-img-top" src="{{ asset('/assets/images/' ~ company.image) }}">
+
+            <img class="card-img-top" src="{{ asset('/assets/images/' ~ company.image) | imagine_filter('my_thumb') }}">
           </div>
           <div class="card-body">
             <ul>
@@ -38,7 +39,7 @@
       <div class="col-md-4">
         <div class="card">
           <div style="background-image: {{ asset('/assets/images/' ~ university.image) }}">
-            <img class="card-img-top" src="{{ asset('/assets/images/' ~ university.image) }}">
+            <img class="card-img-top" src="{{ asset('/assets/images/' ~ university.image) | imagine_filter('my_thumb') }}">
           </div>
           <div class="card-body">
             <ul>
@@ -71,7 +72,7 @@
       <div class="col-md-4">
         <div class="card">
           <div style="background-image: {{ asset('/assets/images/' ~ volunteer.image) }}">
-            <img class="card-img-top" src="{{ asset('/assets/images/' ~ volunteer.image) }}">
+            <img class="card-img-top" src="{{ asset('/assets/images/' ~ volunteer.image) | imagine_filter('my_thumb') }}">
           </div>
           <div class="card-body">
             <ul>

@@ -1,114 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block header %}
-  {#<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">#}
-    {#<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>#}
-    {#<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">#}
-    {#<ul class="navbar-nav px-3">#}
-      {#<li class="nav-item text-nowrap">#}
-        {#<a class="nav-link" href="#">Sign out</a>#}
-      {#</li>#}
-    {#</ul>#}
-  {#</nav>#}
-
-  {#{% set route = app.request.attributes.get('_route') %}#}
-  {#<nav class="col-md-2 navbar-inverse d-none d-md-block bg-light sidebar">#}
-    {#<div class="sidebar-sticky">#}
-      {#<ul class="nav navbar-nav">#}
-
-        {#<li class="nav-item">#}
-          {#<a class="nav-link active" href="#">#}
-            {#<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>#}
-            {#Dashboard <span class="sr-only">(current)</span>#}
-          {#</a>#}
-        {#</li>#}
-        {#<li class="nav-item">#}
-          {#<a class="nav-link" href="#">#}
-            {#<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>#}
-            {#Orders#}
-          {#</a>#}
-        {#</li>#}
-
-        {#<li {{ route ==  'post_index_admin' ? 'class="active"' }}>#}
-          {#<a class="navbar-link" href="{{ path('post_index_admin') }}">Blog</a>#}
-        {#</li>#}
-        {#<li {{ route ==  'about_admin' ? 'class="active"' }}>#}
-          {#<a class="navbar-brand" href="{{ path('about_admin') }}">About</a>#}
-        {#</li>#}
-        {#<li {{ route ==  'goal_index_admin' ? 'class="active"' }}>#}
-          {#<a class="navbar-brand" href="{{ path('goal_index_admin') }}">Goals</a>#}
-        {#</li>#}
-        {#<li {{ route ==  'skill_index_admin' ? 'class="active"' }}>#}
-          {#<a class="navbar-brand" href="{{ path('skill_index_admin') }}">Skills</a>#}
-        {#</li>#}
-        {#<li {{ route ==  'project_index_admin' ? 'class="active"' }}>#}
-          {#<a class="navbar-brand" href="{{ path('project_index_admin') }}">Projects</a>#}
-        {#</li>#}
-      {#</ul>#}
-    {#</div>#}
-  {#</nav>#}
-
-
-
-
-
-
 
   {% set route = app.request.attributes.get('_route') %}
-  <nav class="navbar navbar-inverse navbar-expand navbar-dark bg-dark">
-    <div class="container">
-      <div class="navbar-header">
+  <nav class="col-md-2 navbar-inverse d-none d-block bg-dark sidebar">
+    <div class="sidebar-sticky">
+      <ul class="nav navbar-nav">
 
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="{{ path('homepage') }}" class="my-icon"><img src="/assets/images/home.png"></a>
-          </li>
-          <li {{ route ==  'post_index_admin' ? 'class="active"' }}>
-            <a class="navbar-brand" href="{{ path('post_index_admin') }}">Blog</a>
-          </li>
-          <li {{ route ==  'about_admin' ? 'class="active"' }}>
-            <a class="navbar-brand" href="{{ path('about_admin') }}">About</a>
-          </li>
-          <li {{ route ==  'goal_index_admin' ? 'class="active"' }}>
-            <a class="navbar-brand" href="{{ path('goal_index_admin') }}">Goals</a>
-          </li>
-          <li {{ route ==  'skill_index_admin' ? 'class="active"' }}>
-            <a class="navbar-brand" href="{{ path('skill_index_admin') }}">Skills</a>
-          </li>
-          <li {{ route ==  'project_index_admin' ? 'class="active"' }}>
-            <a class="navbar-brand" href="{{ path('project_index_admin') }}">Projects</a>
-          </li>
-        </ul>
-      </div>
+        <li {{ route == 'post_index_admin' ? 'class="active"' }}>
+          <a class="navbar-brand" href="{{ path('post_index_admin') }}"><i class="fa fa-newspaper-o"></i>Blog</a>
+        </li>
 
+        <div class="input-group have-children">
+          <div class="input-group-prepend">
+            <a class="navbar-brand" href="{{ path('about_admin') }}"><i class="fa fa-briefcase"></i> About</a>
+            <a class="btn-show"><i class="fa fa-sort-down"></i></a>
+            <a class="btn-hide"><i class="fa fa-sort-up"></i></a>
+          </div>
 
-      <div id="navbar" class="collapse navbar-collapse">
-
-        <ul class="nav navbar-nav">
-          <ul class="dropdown">
-            <h4 class=" dropbtn">Team</h4>
-
-            <li class="dropdown-content">
-              <a href="{{ path('team_index_admin') }}">Team</a>
-              <a href="{{ path('table_index_admin') }}">Table</a>
+          <ul class="nav navbar-nav">
+            <li {{ route == 'company_index_admin' ? 'class="active"' }}>
+              <a class="navbar-link" href="{{ path('company_index_admin') }}"><i class="fa fa-group"></i>Companies</a>
             </li>
-
-          </ul>
-
-          <ul class="dropdown">
-            <h4 class=" dropbtn">Games</h4>
-
-            <li class="dropdown-content">
-              <a href="{{ path('tennis_admin') }}">Tennis</a>
-              <a href="{{ path('snake_admin') }}">Snake</a>
+            <li {{ route == 'university_index_admin' ? 'class="active"' }}>
+              <a class="navbar-link" href="{{ path('university_index_admin') }}"><i class="fa fa-graduation-cap"></i>Universities</a>
             </li>
-
+            <li {{ route == 'award_index_admin' ? 'class="active"' }}>
+              <a class="navbar-link" href="{{ path('award_index_admin') }}"><i class="fa fa-child"></i>Awards</a>
+            </li>
+            <li {{ route == 'volunteer_index_admin' ? 'class="active"' }}>
+              <a class="navbar-link" href="{{ path('volunteer_index_admin') }}"><i class="fa fa-american-sign-language-interpreting"></i>Volunteers</a>
+            </li>
           </ul>
+        </div>
 
-        </ul>
-      </div><!--/.nav-collapse -->
+        <li {{ route == 'goal_index_admin' ? 'class="active"' }}>
+          <a class="navbar-brand" href="{{ path('goal_index_admin') }}"><i class="fa fa-diamond"></i>Goals</a>
+        </li>
+        <li {{ route == 'skill_index_admin' ? 'class="active"' }}>
+          <a class="navbar-brand" href="{{ path('skill_index_admin') }}"><i class="fa fa-gears"></i>Skills</a>
+        </li>
+        <li {{ route == 'project_index_admin' ? 'class="active"' }}>
+          <a class="navbar-brand" href="{{ path('project_index_admin') }}"><i class="fa fa-folder-open-o"></i>Projects</a>
+        </li>
+
+        <li class="sign-out">
+          <a class="navbar-link" href="{{ logout_url() }}"><i class="fa fa-power-off"></i>Sign Out</a>
+        </li>
+      </ul>
     </div>
   </nav>
+
 {% endblock %}
 
 

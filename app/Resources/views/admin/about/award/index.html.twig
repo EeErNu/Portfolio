@@ -2,39 +2,33 @@
 
 {% block body %}
   <h1>Awards list</h1>
+  <a class="btn btn-success" href="{{ path('award_new_admin') }}">Create a new award</a>
 
-  <table>
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Description</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
+  <div class="row posts">
     {% for award in awards %}
-      <tr>
-        <td><a href="{{ path('award_show_admin', { 'id': award.id }) }}">{{ award.id }}</a></td>
-        <td>{{ award.name }}</td>
-        <td>{% if award.date %}{{ award.date|date('Y-m-d') }}{% endif %}</td>
-        <td>{{ award.description }}</td>
-        <td>
-          <ul>
-            <li>
-              <a href="{{ path('award_show_admin', { 'id': award.id }) }}">show</a>
-            </li>
-            <li>
-              <a href="{{ path('award_edit_admin', { 'id': award.id }) }}">edit</a>
-            </li>
-          </ul>
-        </td>
-      </tr>
-    {% endfor %}
-    </tbody>
-  </table>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <ul>
+              <li>Id <a href="{{ path('award_show_admin', { 'id': award.id }) }}">{{ award.id }}</a></li>
+              <li>Name {{ award.name }}</li>
+              <li>Date {% if award.date %}{{ award.date|date('Y-m-d') }}{% endif %}</li>
+              <li>Description {{ award.description }}</li>
+            </ul>
 
-  <a href="{{ path('award_new_admin') }}">Create a new award</a>
+            <p class="card-text">{{ award.description[:200] ~ '...' }}</p>
+            <a href="{{ path('award_show_admin', { 'id': award.id }) }}" class="btn btn-success">
+              <i class="fa fa-eye"></i>
+              Show more
+            </a>
+            <a href="{{ path('award_edit_admin', { 'id': award.id }) }}" class="btn btn-danger">
+              <i class="fa fa-edit"></i>
+              Edit
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 
 {% endblock %}
