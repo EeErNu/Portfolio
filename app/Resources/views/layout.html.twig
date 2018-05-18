@@ -1,5 +1,60 @@
 {% extends 'base.html.twig' %}
 
+{% block header %}
+  {% set route = app.request.attributes.get('_route') %}
+
+  <nav class="navbar navbar-inverse navbar-expand navbar-dark bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="{{ path('homepage') }}" class="my-icon"><img src="/assets/images/home.png"></a>
+          </li>
+          <li {{ route ==  'post_index' ? 'class="active"' }}>
+            <a class="navbar-brand" href="{{ path('post_index') }}">Blog</a>
+          </li>
+          <li {{ route ==  'about' ? 'class="active"' }}>
+            <a class="navbar-brand" href="{{ path('about') }}">About</a>
+          </li>
+          <li {{ route ==  'goal_index' ? 'class="active"' }}>
+            <a class="navbar-brand" href="{{ path('goal_index') }}">Goals</a>
+          </li>
+          <li {{ route ==  'skill_index' ? 'class="active"' }}>
+            <a class="navbar-brand" href="{{ path('skill_index') }}">Skills</a>
+          </li>
+          <li {{ route ==  'project_index' ? 'class="active"' }}>
+            <a class="navbar-brand" href="{{ path('project_index') }}">Projects</a>
+          </li>
+        </ul>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+
+        <ul class="nav navbar-nav">
+          <ul class="dropdown">
+            <h4 class=" dropbtn">Team</h4>
+
+            <li class="dropdown-content">
+              <a href="{{ path('team_index') }}">Team</a>
+              <a href="{{ path('table_index') }}">Table</a>
+            </li>
+
+          </ul>
+
+          <ul class="dropdown">
+            <h4 class=" dropbtn">Games</h4>
+
+            <li class="dropdown-content">
+              <a href="{{ path('tennis') }}">Tennis</a>
+              <a href="{{ path('snake') }}">Snake</a>
+            </li>
+          </ul>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+{% endblock %}
+
 {% block javascripts %}
   <script
       src="{{ app.debug ? asset('assets/scripts/libs/babel-polyfill.js') : asset('assets/scripts/libs/babel-polyfill.min.js') }}"></script>

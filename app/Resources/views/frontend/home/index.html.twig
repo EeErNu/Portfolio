@@ -1,53 +1,72 @@
 {% extends 'layout.html.twig' %}
 
-{% block body %}
-  <div class="row posts">
+{% block header %}
+{% endblock %}
 
-    <div class="col-md-9">
-      <h2>The Blogger</h2>
-      {#<canvas class="myChart" width="200" height="200"></canvas>#}
-    </div>
+{% block homePage %}
 
-    <div class="col-md-3">
-      <h2>The last posts</h2>
-    </div>
+  <div class="homepage">
+    <h1>
+      <p>Need a team member? Hire me as a</p>
+      <b>{</b>
 
+      <span class="typewrite" data-period="2000"
+            data-type='[ "ready-to-go", "agile", "responsible", "full stack" ]'>
+      <span class="wrap"></span>
+    </span>
+      <i>|</i>
+      <b>}</b>
+      <p>web developer.</p>
+    </h1>
   </div>
 
-  <div class="row">
-    <div class="col-md-9 posts">
-      {% for post in posts %}
-        <div class="card">
+  {#<div class="row posts">#}
 
-          <div class="card-body">
-            <h4 class="card-title">{{ post.title }}</h4>
-            <p class="card-text">{{ post.content[:200] ~ '...' }}</p>
-          </div>
-        </div>
-      {% endfor %}
+  {#<div class="col-md-9">#}
+  {#<h2>The Blogger</h2>#}
+  {#<canvas class="myChart" width="200" height="200"></canvas>#}
+  {#</div>#}
 
-    </div>
+  {#<div class="col-md-3">#}
+  {#<h2>The last posts</h2>#}
+  {#</div>#}
 
-    <div class="col-md-3">
-      <div class="row">
-        <div class="col-md-12 posts">
+  {#</div>#}
 
-          {% for post in posts %}
-            <div class="card">
-              <img class="card-img-top" src="{{ asset('/assets/images/' ~ post.image) }}">
-              <div class="card-body">
-                <h4 class="card-title">{{ post.title }}</h4>
-                <p>Published: {{ post.date|date('d m Y') }} by {{ post.author }}</p>
-                <p class="card-text">{{ post.content[:200] ~ '...' }}</p>
+  {#<div class="row">#}
+  {#<div class="col-md-9 posts">#}
+  {#{% for post in posts %}#}
+  {#<div class="card">#}
 
-              </div>
-            </div>
-          {% endfor %}
+  {#<div class="card-body">#}
+  {#<h4 class="card-title">{{ post.title }}</h4>#}
+  {#<p class="card-text">{{ post.content[:200] ~ '...' }}</p>#}
+  {#</div>#}
+  {#</div>#}
+  {#{% endfor %}#}
 
-        </div>
-      </div>
-    </div>
-  </div>
+  {#</div>#}
+
+  {#<div class="col-md-3">#}
+  {#<div class="row">#}
+  {#<div class="col-md-12 posts">#}
+
+  {#{% for post in posts %}#}
+  {#<div class="card">#}
+  {#<img class="card-img-top" src="{{ asset('/assets/images/' ~ post.image) }}">#}
+  {#<div class="card-body">#}
+  {#<h4 class="card-title">{{ post.title }}</h4>#}
+  {#<p>Published: {{ post.date|date('d m Y') }} by {{ post.author }}</p>#}
+  {#<p class="card-text">{{ post.content[:200] ~ '...' }}</p>#}
+
+  {#</div>#}
+  {#</div>#}
+  {#{% endfor %}#}
+
+  {#</div>#}
+  {#</div>#}
+  {#</div>#}
+  {#</div>#}
 
 
 {% endblock %}
