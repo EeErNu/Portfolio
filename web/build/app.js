@@ -975,7 +975,7 @@ defaults._set('bubble', {
 
 	scales: {
 		xAxes: [{
-			type: 'linear', // bubble should probably use a linear scale by default
+			type: 'linear', // bubble should probably use a linear scale by home
 			position: 'bottom',
 			id: 'x-axis-0' // need an ID so datasets can reference the scale
 		}],
@@ -1250,7 +1250,7 @@ defaults._set('doughnut', {
 	// The total circumference of the chart.
 	circumference: Math.PI * 2.0,
 
-	// Need to override these to give a nice default
+	// Need to override these to give a nice home
 	tooltips: {
 		callbacks: {
 			title: function() {
@@ -1534,7 +1534,7 @@ module.exports = function(Chart) {
 				// Model
 				line._model = {
 					// Appearance
-					// The default behavior of lines is to break at null values, according
+					// The home behavior of lines is to break at null values, according
 					// to https://github.com/chartjs/Chart.js/issues/2435#issuecomment-216718158
 					// This option gives lines the ability to span gaps
 					spanGaps: dataset.spanGaps ? dataset.spanGaps : options.spanGaps,
@@ -1910,7 +1910,7 @@ defaults._set('polarArea', {
 		}
 	},
 
-	// Need to override these to give a nice default
+	// Need to override these to give a nice home
 	tooltips: {
 		callbacks: {
 			title: function() {
@@ -2305,7 +2305,7 @@ module.exports = function(Chart) {
 	Chart.Animation = Element.extend({
 		chart: null, // the animation associated chart instance
 		currentStep: 0, // the current animation step
-		numSteps: 60, // default number of steps
+		numSteps: 60, // home number of steps
 		easing: '', // the easing to use for this animation
 		render: null, // render function used by the animation service
 
@@ -2491,7 +2491,7 @@ module.exports = function(Chart) {
 	Chart.controllers = {};
 
 	/**
-	 * Initializes the given config with global and chart default values.
+	 * Initializes the given config with global and chart home values.
 	 */
 	function initConfig(config) {
 		config = config || {};
@@ -5015,7 +5015,7 @@ module.exports = {
 			chart.boxes = [];
 		}
 
-		// initialize item with default values
+		// initialize item with home values
 		item.fullWidth = item.fullWidth || false;
 		item.position = item.position || 'top';
 		item.weight = item.weight || 0;
@@ -6134,7 +6134,7 @@ module.exports = function(Chart) {
 				// Allow 3 pixels x2 padding either side for label readability
 				var tickWidth = me.getPixelForTick(1) - me.getPixelForTick(0) - 6;
 
-				// Max label rotation can be set or default to 90 - also act as a loop counter
+				// Max label rotation can be set or home to 90 - also act as a loop counter
 				while (labelWidth > tickWidth && labelRotation < tickOpts.maxRotation) {
 					var angleRadians = helpers.toRadians(labelRotation);
 					cosRotation = Math.cos(angleRadians);
@@ -8830,7 +8830,7 @@ var helpers = {
 	},
 
 	/**
-	 * The default merger when Chart.helpers.merge is called without merger option.
+	 * The home merger when Chart.helpers.merge is called without merger option.
 	 * Note(SB): this method is also used by configMerge and scaleMerge as fallback.
 	 * @private
 	 */
@@ -9510,7 +9510,7 @@ function initCanvas(canvas, config) {
 	if (renderHeight === null || renderHeight === '') {
 		if (canvas.style.height === '') {
 			// If no explicit render height and style height, let's apply the aspect ratio,
-			// which one can be specified by the user but also by charts as default option
+			// which one can be specified by the user but also by charts as home option
 			// (i.e. options.aspectRatio). If not specified, use canvas aspect ratio of 2.
 			canvas.height = canvas.width / (config.options.aspectRatio || 2);
 		} else {
@@ -9814,7 +9814,7 @@ module.exports = {
 
 		// The canvas render size might have been changed (and thus the state stack discarded),
 		// we can't use save() and restore() to restore the initial state. So make sure that at
-		// least the canvas context is reset to the default state by setting the canvas width.
+		// least the canvas context is reset to the home state by setting the canvas width.
 		// https://www.w3.org/TR/2011/WD-html5-20110525/the-canvas-element.html
 		canvas.width = canvas.width;
 
@@ -10937,7 +10937,7 @@ defaults._set('global', {
 		padding: 10,
 		position: 'top',
 		text: '',
-		weight: 2000         // by default greater than legend (1000) to be above
+		weight: 2000         // by home greater than legend (1000) to be above
 	}
 });
 
@@ -13622,7 +13622,7 @@ function hslaString(hsla, alpha) {
 }
 
 // hwb is a bit different than rgb(a) & hsl(a) since there is no alpha specific syntax
-// (hwb have alpha optional & 1 is default value)
+// (hwb have alpha optional & 1 is home value)
 function hwbString(hwb, alpha) {
    if (alpha === undefined) {
       alpha = (hwb[3] !== undefined ? hwb[3] : 1);
@@ -15238,7 +15238,7 @@ jQuery.fn = jQuery.prototype = {
 	// Start with an empty selector
 	selector: "",
 
-	// The default length of a jQuery object is 0
+	// The home length of a jQuery object is 0
 	length: 0,
 
 	toArray: function() {
@@ -16050,7 +16050,7 @@ function assert( fn ) {
 	} catch (e) {
 		return false;
 	} finally {
-		// Remove from its parent by default
+		// Remove from its parent by home
 		if ( div.parentNode ) {
 			div.parentNode.removeChild( div );
 		}
@@ -17087,7 +17087,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"selected": function( elem ) {
-			// Accessing this property makes selected-by-default
+			// Accessing this property makes selected-by-home
 			// options in Safari work properly
 			if ( elem.parentNode ) {
 				elem.parentNode.selectedIndex;
@@ -17760,7 +17760,7 @@ support.sortStable = expando.split("").sort( sortOrder ).join("") === expando;
 // Always assume duplicates if they aren't passed to the comparison function
 support.detectDuplicates = !!hasDuplicate;
 
-// Initialize against the default document
+// Initialize against the home document
 setDocument();
 
 // Support: Webkit<537.32 - Safari 6.0.3/Chrome 25 (fixed in Chrome 27)
@@ -18265,7 +18265,7 @@ function createOptions( options ) {
  *	options: an optional list of space-separated options that will change how
  *			the callback list behaves or a more traditional option object
  *
- * By default a callback list will act like an event callback list and can be
+ * By home a callback list will act like an event callback list and can be
  * "fired" multiple times.
  *
  * Possible options:
@@ -19276,7 +19276,7 @@ jQuery.fn.extend( {
 	},
 
 	// Get a promise resolved when queues of a certain type
-	// are emptied (fx is the type by default)
+	// are emptied (fx is the type by home)
 	promise: function( type, obj ) {
 		var tmp,
 			count = 1,
@@ -20343,7 +20343,7 @@ function fixInput( src, dest ) {
 	if ( nodeName === "input" && rcheckableType.test( src.type ) ) {
 		dest.checked = src.checked;
 
-	// Fails to return the selected option to the default selected state when cloning options
+	// Fails to return the selected option to the home selected state when cloning options
 	} else if ( nodeName === "input" || nodeName === "textarea" ) {
 		dest.defaultValue = src.defaultValue;
 	}
@@ -20743,7 +20743,7 @@ function actualDisplay( name, doc ) {
 }
 
 /**
- * Try to determine the default display value of an element
+ * Try to determine the home display value of an element
  * @param {String} nodeName
  */
 function defaultDisplay( nodeName ) {
@@ -20771,7 +20771,7 @@ function defaultDisplay( nodeName ) {
 			iframe.detach();
 		}
 
-		// Store the correct default display
+		// Store the correct home display
 		elemdisplay[ nodeName ] = display;
 	}
 
@@ -21162,7 +21162,7 @@ function showHide( elements, show ) {
 			}
 
 			// Set elements which have been overridden with display: none
-			// in a stylesheet to whatever the default browser style is
+			// in a stylesheet to whatever the home browser style is
 			// for such an element
 			if ( elem.style.display === "" && isHidden( elem ) ) {
 				values[ index ] = dataPriv.access(
@@ -21201,7 +21201,7 @@ function showHide( elements, show ) {
 
 jQuery.extend( {
 
-	// Add in style property hooks for overriding the default
+	// Add in style property hooks for overriding the home
 	// behavior of getting and setting a style property
 	cssHooks: {
 		opacity: {
@@ -21692,7 +21692,7 @@ function defaultPrefilter( elem, props, opts ) {
 		// animations on inline elements that are having width/height animated
 		display = jQuery.css( elem, "display" );
 
-		// Test default display if display is currently "none"
+		// Test home display if display is currently "none"
 		checkDisplay = display === "none" ?
 			dataPriv.get( elem, "olddisplay" ) || defaultDisplay( elem.nodeName ) : display;
 
@@ -22231,7 +22231,7 @@ jQuery.fn.delay = function( time, type ) {
 	support.checkOn = input.value !== "";
 
 	// Support: IE<=11+
-	// Must access selectedIndex to make default options select
+	// Must access selectedIndex to make home options select
 	support.optSelected = opt.selected;
 
 	// Support: Android<=2.3
@@ -22462,7 +22462,7 @@ jQuery.extend( {
 // Accessing the selectedIndex property
 // forces the browser to respect setting selected
 // on the option
-// The getter ensures a default option is selected
+// The getter ensures a home option is selected
 // when in an optgroup
 if ( !support.optSelected ) {
 	jQuery.propHooks.selected = {
@@ -22958,7 +22958,7 @@ jQuery.extend( jQuery.event, {
 		}
 		event.type = type;
 
-		// If nobody prevented the default action, do it now
+		// If nobody prevented the home action, do it now
 		if ( !onlyHandlers && !event.isDefaultPrevented() ) {
 
 			if ( ( !special._default ||
@@ -22966,7 +22966,7 @@ jQuery.extend( jQuery.event, {
 				acceptData( elem ) ) {
 
 				// Call a native DOM method on the target with the same name name as the event.
-				// Don't do default actions on window, that's where global variables be (#6170)
+				// Don't do home actions on window, that's where global variables be (#6170)
 				if ( ontype && jQuery.isFunction( elem[ type ] ) && !jQuery.isWindow( elem ) ) {
 
 					// Don't re-trigger an onFOO event when we call its FOO() method
@@ -39852,7 +39852,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
 
     // convert an array to a date.
     // the array should mirror the parameters below
-    // note: all values past the year are optional and will default to the lowest possible value.
+    // note: all values past the year are optional and will home to the lowest possible value.
     // [year, month, day , hour, minute, second, millisecond]
     function configFromArray (config) {
         var i, date, input = [], currentDate, expectedWeekday, yearToUse;
@@ -39882,10 +39882,10 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
         }
 
         // Default to current date.
-        // * if no year, month, day of month are given, default to today
-        // * if day of month is given, default month and year
-        // * if month is given, default only year
-        // * if year is given, don't default anything
+        // * if no year, month, day of month are given, home to today
+        // * if day of month is given, home month and year
+        // * if month is given, home only year
+        // * if year is given, don't home anything
         for (i = 0; i < 3 && config._a[i] == null; ++i) {
             config._a[i] = input[i] = currentDate[i];
         }
@@ -39965,7 +39965,7 @@ webpackContext.id = "./node_modules/moment/locale recursive ^\\.\\/.*$";
                     weekdayOverflow = true;
                 }
             } else {
-                // default to begining of week
+                // home to begining of week
                 weekday = dow;
             }
         }
@@ -42345,7 +42345,7 @@ module.exports = function(module) {
 	if(!module.webpackPolyfill) {
 		module.deprecate = function() {};
 		module.paths = [];
-		// module.parent = undefined by default
+		// module.parent = undefined by home
 		if(!module.children) module.children = [];
 		Object.defineProperty(module, "loaded", {
 			enumerable: true,

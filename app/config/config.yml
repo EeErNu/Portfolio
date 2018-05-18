@@ -177,7 +177,7 @@ oneup_flysystem:
 #            adapter: my_adapter
             adapter: Dropbox
 
-            # optional - defines the default visibility of the filesystem: `public` or `private`(default)
+            # optional - defines the home visibility of the filesystem: `public` or `private`(home)
             visibility: private
 
 liip_imagine:

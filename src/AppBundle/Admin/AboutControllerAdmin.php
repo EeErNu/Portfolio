@@ -10,22 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  *
  * @Route("/")
  */
-class DefaultControllerAdmin extends Controller
+class AboutControllerAdmin extends Controller
 {
-    /**
-     * @Route("/", name="homepage_admin")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $posts = $em->getRepository('AppBundle:Post')->findBy([], ['date' => 'desc'], 4);
-
-        return $this->render('admin/default/index.html.twig', [
-            'posts' => $posts,
-        ]);
-    }
-
     /**
      * @Route("/about", name="about_admin")
      */
@@ -45,24 +31,6 @@ class DefaultControllerAdmin extends Controller
             'awards' => $awards,
         ]);
     }
-
-    /**
-     * @Route("/tennis", name="tennis_admin")
-     */
-    public function tennisAction()
-    {
-        return $this->render('admin/default/tennis.html.twig');
-    }
-
-    /**
-     * @Route("/snake", name="snake_admin")
-     */
-    public function snakeAction()
-    {
-        return $this->render('admin/default/snake.html.twig');
-    }
-
-
 }
 
 

@@ -67,7 +67,7 @@ services:
         volumes:
             - ".:/app"
             - "./tasks/files/nginx.dev.conf:/etc/nginx/conf.d/dev.conf"
-            - "./tasks/files/nginx.prod.conf:/etc/nginx/conf.d/default.conf"
+            - "./tasks/files/nginx.prod.conf:/etc/nginx/conf.d/home.conf"
         environment:
             TZ: Europe/Amsterdam
         ports: ["80:80", "8080:8080"]

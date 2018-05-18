@@ -4,7 +4,9 @@
   position: fixed;
 
   .fa {
-    margin-right: 1rem
+    margin-right: 3rem;
+    height: 1px;
+    width: 1px;
   }
   ul, li, a, .active > a {
     width: 100%;
@@ -45,4 +47,3 @@
     }
   }
 }
-
