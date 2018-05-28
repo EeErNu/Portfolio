@@ -1,38 +1,39 @@
 {% extends 'headerAdmin.html.twig' %}
 
 {% block body %}
+  <div class="col-md-9">
+    <h1>Projects</h1>
+    <a class="btn btn-success" href="{{ path('project_new_admin') }}">{{ 'button_create'|trans }}</a>
 
-  <h1>Projects</h1>
-  <a class="btn btn-success" href="{{ path('project_new_admin') }}">{{ 'button_create'|trans }}</a>
+    <div class="row posts">
+      {% for project in projects %}
+        <div class="col-md-4">
+          <div class="card">
+            <div style="background-image: {{ asset('/assets/images/' ~ project.image) }}">
+              <img class="card-img-top" src="{{ asset('/assets/images/' ~ project.image) }}">
+            </div>
+            <div class="card-body">
+              <ul>
+                <li>Id <a href="{{ path('project_show_admin', { 'id': project.id }) }}">{{ project.id }}</a></li>
+                <li>Date {% if project.date %}{{ project.date|date('Y-m-d') }}{% endif %}</li>
+                <li>Name {{ project.name }}</li>
+                <li>Description {{ project.description }}</li>
+                <li>URL {{ project.link }}</li>
+              </ul>
 
-  <div class="row posts">
-    {% for project in projects %}
-      <div class="col-md-4">
-        <div class="card">
-          <div style="background-image: {{ asset('/assets/images/' ~ project.image) }}">
-            <img class="card-img-top" src="{{ asset('/assets/images/' ~ project.image) }}">
-          </div>
-          <div class="card-body">
-            <ul>
-              <li>Id <a href="{{ path('project_show_admin', { 'id': project.id }) }}">{{ project.id }}</a></li>
-              <li>Date {% if project.date %}{{ project.date|date('Y-m-d') }}{% endif %}</li>
-              <li>Name {{ project.name }}</li>
-              <li>Description {{ project.description }}</li>
-              <li>URL {{ project.link }}</li>
-            </ul>
-
-            <p class="card-text">{{ project.description[:200] ~ '...' }}</p>
-            <a href="{{ path('project_show_admin', { 'id': project.id }) }}" class="btn btn-success">
-              <i class="fa fa-eye"></i>
-              {{ 'button_show'|trans }}
-            </a>
-            <a href="{{ path('project_edit_admin', { 'id': project.id }) }}" class="btn btn-danger">
-              <i class="fa fa-edit"></i>
-              {{ 'button_edit'|trans }}
-            </a>
+              <p class="card-text">{{ project.description[:200] ~ '...' }}</p>
+              <a href="{{ path('project_show_admin', { 'id': project.id }) }}" class="btn btn-success">
+                <i class="fa fa-eye"></i>
+                {{ 'button_show'|trans }}
+              </a>
+              <a href="{{ path('project_edit_admin', { 'id': project.id }) }}" class="btn btn-danger">
+                <i class="fa fa-edit"></i>
+                {{ 'button_edit'|trans }}
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}
