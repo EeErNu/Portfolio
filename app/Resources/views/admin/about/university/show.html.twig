@@ -50,10 +50,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('about_admin') }}">Back to the list</a>
+            <a href="{{ path('about_admin') }}">{{ 'button_back'|trans }}</a>
         </li>
         <li>
-            <a href="{{ path('university_edit_admin', { 'id': university.id }) }}">Edit</a>
+            <a href="{{ path('university_edit_admin', { 'id': university.id }) }}">{{ 'button_edit'|trans }}</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

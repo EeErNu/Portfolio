@@ -3,7 +3,7 @@
 {% block body %}
   <h1>Volunteers list</h1>
 
-  <a class="btn btn-success" href="{{ path('volunteer_new_admin') }}">Create a new volunteer</a>
+  <a class="btn btn-success" href="{{ path('volunteer_new_admin') }}">{{ 'button_create'|trans }}</a>
 
   <div class="row posts">
     {% for volunteer in volunteers %}
@@ -26,11 +26,11 @@
             <p class="card-text">{{ volunteer.description[:200] ~ '...' }}</p>
             <a href="{{ path('volunteer_show_admin', { 'id': volunteer.id }) }}" class="btn btn-success">
               <i class="fa fa-eye"></i>
-              Show more
+              {{ 'button_show'|trans }}
             </a>
             <a href="{{ path('volunteer_edit_admin', { 'id': volunteer.id }) }}" class="btn btn-danger">
               <i class="fa fa-edit"></i>
-              Edit
+              {{ 'button_edit'|trans }}
             </a>
           </div>
         </div>

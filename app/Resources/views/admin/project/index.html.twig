@@ -3,7 +3,7 @@
 {% block body %}
 
   <h1>Projects</h1>
-  <a class="btn btn-success" href="{{ path('project_new_admin') }}">Create a new project</a>
+  <a class="btn btn-success" href="{{ path('project_new_admin') }}">{{ 'button_create'|trans }}</a>
 
   <div class="row posts">
     {% for project in projects %}
@@ -24,11 +24,11 @@
             <p class="card-text">{{ project.description[:200] ~ '...' }}</p>
             <a href="{{ path('project_show_admin', { 'id': project.id }) }}" class="btn btn-success">
               <i class="fa fa-eye"></i>
-              Show more
+              {{ 'button_show'|trans }}
             </a>
             <a href="{{ path('project_edit_admin', { 'id': project.id }) }}" class="btn btn-danger">
               <i class="fa fa-edit"></i>
-              Edit
+              {{ 'button_edit'|trans }}
             </a>
           </div>
         </div>

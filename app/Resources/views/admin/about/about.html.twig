@@ -3,8 +3,8 @@
 {% block body %}
 
   <div class="col-md-9">
-    <h1>Companies list</h1>
-    <a class="btn btn-success" href="{{ path('company_new_admin') }}">Create a new company</a>
+    <h1> {{ 'companies_list'|trans }} </h1>
+    <a class="btn btn-success" href="{{ path('company_new_admin') }}">{{ 'button_create'|trans }}</a>
 
     <div class="row posts">
       {% for company in companies %}
@@ -27,11 +27,11 @@
               <p class="card-text">{{ company.description[:200] ~ '...' }}</p>
               <a href="{{ path('company_show_admin', { 'id': company.id }) }}" class="btn btn-success">
                 <i class="fa fa-eye"></i>
-                Show more
+                {{ 'button_show'|trans }}
               </a>
               <a href="{{ path('company_edit_admin', { 'id': company.id }) }}" class="btn btn-danger">
                 <i class="fa fa-edit"></i>
-                Edit
+                {{ 'button_edit'|trans }}
               </a>
             </div>
           </div>
@@ -39,9 +39,9 @@
       {% endfor %}
     </div>
 
-    <h1>Universities list</h1>
+    <h1> {{ 'universities_list'|trans }} </h1>
 
-    <a class="btn btn-success" href="{{ path('university_new_admin') }}">Create a new university</a>
+    <a class="btn btn-success" href="{{ path('university_new_admin') }}">{{ 'button_create'|trans }}</a>
 
     <div class="row posts">
       {% for university in universities %}
@@ -67,11 +67,11 @@
               <p class="card-text">{{ university.description[:200] ~ '...' }}</p>
               <a href="{{ path('university_show_admin', { 'id': university.id }) }}" class="btn btn-success">
                 <i class="fa fa-eye"></i>
-                Show more
+                {{ 'button_show'|trans }}
               </a>
               <a href="{{ path('university_edit_admin', { 'id': university.id }) }}" class="btn btn-danger">
                 <i class="fa fa-edit"></i>
-                Edit
+                {{ 'button_edit'|trans }}
               </a>
             </div>
           </div>
@@ -81,8 +81,8 @@
   </div>
 
   <div class="col-md-3">
-    <h1>Awards list</h1>
-    <a class="btn btn-success" href="{{ path('award_new_admin') }}">Create a new award</a>
+    <h1> {{ 'awards_list'|trans }} </h1>
+    <a class="btn btn-success" href="{{ path('award_new_admin') }}">{{ 'button_create'|trans }}</a>
 
     <div class="row posts">
       {% for award in awards %}
@@ -99,11 +99,11 @@
               <p class="card-text">{{ award.description[:200] ~ '...' }}</p>
               <a href="{{ path('award_show_admin', { 'id': award.id }) }}" class="btn btn-success">
                 <i class="fa fa-eye"></i>
-                Show more
+                {{ 'button_show'|trans }}
               </a>
               <a href="{{ path('award_edit_admin', { 'id': award.id }) }}" class="btn btn-danger">
                 <i class="fa fa-edit"></i>
-                Edit
+                {{ 'button_edit'|trans }}
               </a>
             </div>
           </div>
@@ -111,9 +111,9 @@
       {% endfor %}
     </div>
 
-    <h1>Volunteers list</h1>
+    <h1> {{ 'volunteers_list'|trans }} </h1>
 
-    <a class="btn btn-success" href="{{ path('volunteer_new_admin') }}">Create a new volunteer</a>
+    <a class="btn btn-success" href="{{ path('volunteer_new_admin') }}">{{ 'button_create'|trans }}</a>
 
     <div class="row posts">
       {% for volunteer in volunteers %}
@@ -136,11 +136,11 @@
               <p class="card-text">{{ volunteer.description[:200] ~ '...' }}</p>
               <a href="{{ path('volunteer_show_admin', { 'id': volunteer.id }) }}" class="btn btn-success">
                 <i class="fa fa-eye"></i>
-                Show more
+                {{ 'button_show'|trans }}
               </a>
               <a href="{{ path('volunteer_edit_admin', { 'id': volunteer.id }) }}" class="btn btn-danger">
                 <i class="fa fa-edit"></i>
-                Edit
+                {{ 'button_edit'|trans }}
               </a>
             </div>
           </div>

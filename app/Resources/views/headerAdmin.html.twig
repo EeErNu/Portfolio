@@ -8,44 +8,44 @@
       <ul class="nav navbar-nav">
 
         <li {{ route == 'post_index_admin' ? 'class="active"' }}>
-          <a class="navbar-brand" href="{{ path('post_index_admin') }}"><i class="fa fa-newspaper-o"></i>Blog</a>
+          <a class="navbar-brand" href="{{ path('post_index_admin') }}"><i class="fa fa-newspaper-o"></i>{{ 'menu_admin_blog'|trans }}</a>
         </li>
 
         <div class="input-group have-children">
           <div class="input-group-prepend">
-            <a class="navbar-brand" href="{{ path('about_admin') }}"><i class="fa fa-briefcase"></i> About</a>
+            <a class="navbar-brand" href="{{ path('about_admin') }}"><i class="fa fa-briefcase"></i>{{ 'menu_admin_about'|trans }}</a>
             <a class="btn-show"><i class="fa fa-sort-down"></i></a>
             <a class="btn-hide"><i class="fa fa-sort-up"></i></a>
           </div>
 
           <ul class="nav navbar-nav">
             <li {{ route == 'company_index_admin' ? 'class="active"' }}>
-              <a class="navbar-link" href="{{ path('company_index_admin') }}"><i class="fa fa-group"></i>Companies</a>
+              <a class="navbar-link" href="{{ path('company_index_admin') }}"><i class="fa fa-group"></i>{{ 'menu_admin_about_companies'|trans }}</a>
             </li>
             <li {{ route == 'university_index_admin' ? 'class="active"' }}>
-              <a class="navbar-link" href="{{ path('university_index_admin') }}"><i class="fa fa-graduation-cap"></i>Universities</a>
+              <a class="navbar-link" href="{{ path('university_index_admin') }}"><i class="fa fa-graduation-cap"></i>{{ 'menu_admin_about_universities'|trans }}</a>
             </li>
             <li {{ route == 'award_index_admin' ? 'class="active"' }}>
-              <a class="navbar-link" href="{{ path('award_index_admin') }}"><i class="fa fa-child"></i>Awards</a>
+              <a class="navbar-link" href="{{ path('award_index_admin') }}"><i class="fa fa-child"></i>{{ 'menu_admin_about_awards'|trans }}</a>
             </li>
             <li {{ route == 'volunteer_index_admin' ? 'class="active"' }}>
-              <a class="navbar-link" href="{{ path('volunteer_index_admin') }}"><i class="fa fa-american-sign-language-interpreting"></i>Volunteers</a>
+              <a class="navbar-link" href="{{ path('volunteer_index_admin') }}"><i class="fa fa-american-sign-language-interpreting"></i>{{ 'menu_admin_about_volunteers'|trans }}</a>
             </li>
           </ul>
         </div>
 
         <li {{ route == 'goal_index_admin' ? 'class="active"' }}>
-          <a class="navbar-brand" href="{{ path('goal_index_admin') }}"><i class="fa fa-diamond"></i>Goals</a>
+          <a class="navbar-brand" href="{{ path('goal_index_admin') }}"><i class="fa fa-diamond"></i>{{ 'menu_admin_goals'|trans }}</a>
         </li>
         <li {{ route == 'skill_index_admin' ? 'class="active"' }}>
-          <a class="navbar-brand" href="{{ path('skill_index_admin') }}"><i class="fa fa-gears"></i>Skills</a>
+          <a class="navbar-brand" href="{{ path('skill_index_admin') }}"><i class="fa fa-gears"></i>{{ 'menu_admin_skills'|trans }}</a>
         </li>
         <li {{ route == 'project_index_admin' ? 'class="active"' }}>
-          <a class="navbar-brand" href="{{ path('project_index_admin') }}"><i class="fa fa-folder-open-o"></i>Projects</a>
+          <a class="navbar-brand" href="{{ path('project_index_admin') }}"><i class="fa fa-folder-open-o"></i>{{ 'menu_admin_projects'|trans }}</a>
         </li>
 
         <li class="sign-out">
-          <a class="navbar-link" href="{{ logout_url() }}"><i class="fa fa-power-off"></i>Sign Out</a>
+          <a class="navbar-link" href="{{ logout_url() }}"><i class="fa fa-power-off"></i>{{ 'menu_admin_sign_out'|trans }}</a>
         </li>
       </ul>
     </div>

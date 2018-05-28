@@ -3,7 +3,7 @@
 
 {% block body %}
 
-  <a href="{{ path('team_new_admin') }}" class="btn btn-success create-button">Create a new entry</a>
+  <a href="{{ path('team_new_admin') }}" class="btn btn-success create-button">{{ 'button_create'|trans }}</a>
 
   <div class="row posts">
     {% for team in teams %}

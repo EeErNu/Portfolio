@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Universities list</h1>
 
-    <a class="btn btn-success" href="{{ path('university_new_admin') }}">Create a new university</a>
+    <a class="btn btn-success" href="{{ path('university_new_admin') }}">{{ 'button_create'|trans }}</a>
 
     <div class="row posts">
       {% for university in universities %}
@@ -29,11 +29,11 @@
                       <p class="card-text">{{ university.description[:200] ~ '...' }}</p>
                       <a href="{{ path('university_show_admin', { 'id': university.id }) }}" class="btn btn-success">
                           <i class="fa fa-eye"></i>
-                          Show more
+                        {{ 'button_show'|trans }}
                       </a>
                       <a href="{{ path('university_edit_admin', { 'id': university.id }) }}" class="btn btn-danger">
                           <i class="fa fa-edit"></i>
-                          Edit
+                        {{ 'button_edit'|trans }}
                       </a>
                   </div>
               </div>

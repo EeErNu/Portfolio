@@ -4,7 +4,7 @@
 
   <div class="col-md-6">
     <h1>Skills list</h1>
-    <a class="btn btn-success" href="{{ path('skill_new_admin') }}">Create a new skill</a>
+    <a class="btn btn-success" href="{{ path('skill_new_admin') }}">{{ 'button_create'|trans }}</a>
 
     <table class="table table-bordered">
       <thead>
@@ -22,8 +22,8 @@
           <td class="skill-name" data-is-named="{{ skill.name }}">{{ skill.name }}</td>
           <td class="skill-score" data-is-scored="{{ skill.score }}">{{ skill.score }}</td>
           <td>
-            <a class="btn btn-default" href="{{ path('skill_show_admin', { 'id': skill.id }) }}">show</a>
-            <a class="btn btn-danger" href="{{ path('skill_edit_admin', { 'id': skill.id }) }}">edit</a>
+            <a class="btn btn-default" href="{{ path('skill_show_admin', { 'id': skill.id }) }}">{{ 'button_show'|trans }}</a>
+            <a class="btn btn-danger" href="{{ path('skill_edit_admin', { 'id': skill.id }) }}">{{ 'button_edit'|trans }}</a>
           </td>
         </tr>
       {% endfor %}

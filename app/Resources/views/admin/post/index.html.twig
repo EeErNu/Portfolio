@@ -6,7 +6,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      <a href="{{ path('post_new_admin') }}" class="btn btn-success create-button">Create a new entry</a>
+      <a href="{{ path('post_new_admin') }}" class="btn btn-success create-button">{{ 'button_create'|trans }}</a>
     </div>
 
     <div class="col-md-6">
@@ -34,11 +34,11 @@
             <p class="card-text">{{ post.content[:200] ~ '...' }}</p>
             <a href="{{ path('post_show_admin', { 'id': post.id }) }}" class="btn btn-success">
               <i class="fa fa-eye"></i>
-              Show more
+              {{ 'button_show'|trans }}
             </a>
             <a href="{{ path('post_edit_admin', { 'id': post.id }) }}" class="btn btn-danger">
               <i class="fa fa-edit"></i>
-              Edit
+              {{ 'button_edit'|trans }}
             </a>
 
           </div>

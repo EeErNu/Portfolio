@@ -1,7 +1,7 @@
 {% extends 'headerAdmin.html.twig' %}
 
 {% block body %}
-  <a class="btn btn-success" href="{{ path('goal_new_admin') }}">Create a new goal</a>
+  <a class="btn btn-success" href="{{ path('goal_new_admin') }}">{{ 'button_create'|trans }}</a>
   <div class="row">
     <div class="col-md-6">
       <h1>Todo</h1>
@@ -24,11 +24,11 @@
                 <p class="card-text">{{ todo.description[:200] ~ '...' }}</p>
                 <a href="{{ path('goal_show_admin', { 'id': todo.id }) }}" class="btn btn-success">
                   <i class="fa fa-eye"></i>
-                  Show more
+                  {{ 'button_show'|trans }}
                 </a>
                 <a href="{{ path('goal_edit_admin', { 'id': todo.id }) }}" class="btn btn-danger">
                   <i class="fa fa-edit"></i>
-                  Edit
+                  {{ 'button_edit'|trans }}
                 </a>
               </div>
             </div>
@@ -59,11 +59,11 @@
                 <p class="card-text">{{ imp.description[:200] ~ '...' }}</p>
                 <a href="{{ path('goal_show_admin', { 'id': imp.id }) }}" class="btn btn-success">
                   <i class="fa fa-eye"></i>
-                  Show more
+                  {{ 'button_show'|trans }}
                 </a>
                 <a href="{{ path('goal_edit_admin', { 'id': imp.id }) }}" class="btn btn-danger">
                   <i class="fa fa-edit"></i>
-                  Edit
+                  {{ 'button_edit'|trans }}
                 </a>
               </div>
             </div>

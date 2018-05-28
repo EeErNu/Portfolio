@@ -2,7 +2,7 @@
 
 {% block body %}
   <h1>Companies list</h1>
-  <a class="btn btn-success" href="{{ path('company_new_admin') }}">Create a new company</a>
+  <a class="btn btn-success" href="{{ path('company_new_admin') }}">{{ 'button_create'|trans }}</a>
 
   <div class="row posts">
     {% for company in companies %}
@@ -25,11 +25,11 @@
             <p class="card-text">{{ company.description[:200] ~ '...' }}</p>
             <a href="{{ path('company_show_admin', { 'id': company.id }) }}" class="btn btn-success">
               <i class="fa fa-eye"></i>
-              Show more
+              {{ 'button_show'|trans }}
             </a>
             <a href="{{ path('company_edit_admin', { 'id': company.id }) }}" class="btn btn-danger">
               <i class="fa fa-edit"></i>
-              Edit
+              {{ 'button_edit'|trans }}
             </a>
           </div>
         </div>

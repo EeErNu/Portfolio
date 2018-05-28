@@ -1,8 +1,8 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-  <h1>Companies list</h1>
 
+  <h1> {{ 'companies_list'|trans }} </h1>
   <div class="row posts">
     {% for company in companies %}
       <div class="col-md-4">
@@ -32,14 +32,15 @@
     {% endfor %}
   </div>
 
-  <h1>Universities list</h1>
+  <h1> {{ 'universities_list'|trans }} </h1>
 
   <div class="row posts">
     {% for university in universities %}
       <div class="col-md-4">
         <div class="card">
           <div style="background-image: {{ asset('/assets/images/' ~ university.image) }}">
-            <img class="card-img-top" src="{{ asset('/assets/images/' ~ university.image) | imagine_filter('my_thumb') }}">
+            <img class="card-img-top"
+                 src="{{ asset('/assets/images/' ~ university.image) | imagine_filter('my_thumb') }}">
           </div>
           <div class="card-body">
             <ul>
@@ -65,14 +66,15 @@
     {% endfor %}
   </div>
 
-  <h1>Volunteers list</h1>
+  <h1> {{ 'volunteers_list'|trans }} </h1>
 
   <div class="row posts">
     {% for volunteer in volunteers %}
       <div class="col-md-4">
         <div class="card">
           <div style="background-image: {{ asset('/assets/images/' ~ volunteer.image) }}">
-            <img class="card-img-top" src="{{ asset('/assets/images/' ~ volunteer.image) | imagine_filter('my_thumb') }}">
+            <img class="card-img-top"
+                 src="{{ asset('/assets/images/' ~ volunteer.image) | imagine_filter('my_thumb') }}">
           </div>
           <div class="card-body">
             <ul>
@@ -95,7 +97,7 @@
     {% endfor %}
   </div>
 
-  <h1>Awards list</h1>
+  <h1> {{ 'awards_list'|trans }} </h1>
   <div class="row posts">
     {% for award in awards %}
       <div class="col-md-4">
